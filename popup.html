@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSP: blocks inline scripts, external resources, and eval entirely -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none';">
+    <title>SilentTube – Focus Mode</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-red">Silent</span>Tube
+            </div>
+            <h1>Focus Mode</h1>
+        </header>
+
+        <main>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <label for="hideShorts">Hide Shorts</label>
+                    <p>Remove Shorts shelves and menu items</p>
+                </div>
+                <label class="switch" aria-label="Toggle Hide Shorts">
+                    <input type="checkbox" id="hideShorts">
+                    <span class="slider" aria-hidden="true"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div class="setting-info">
+                    <label for="hideRecommended">Hide Recommended</label>
+                    <p>Remove sidebar and video suggestions</p>
+                </div>
+                <label class="switch" aria-label="Toggle Hide Recommended">
+                    <input type="checkbox" id="hideRecommended">
+                    <span class="slider" aria-hidden="true"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div class="setting-info">
+                    <label for="hideHomeFeed">Hide Home Feed</label>
+                    <p>Empty your home feed to avoid browsing</p>
+                </div>
+                <label class="switch" aria-label="Toggle Hide Home Feed">
+                    <input type="checkbox" id="hideHomeFeed">
+                    <span class="slider" aria-hidden="true"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div class="setting-info">
+                    <label for="hideEndCards">Hide End Cards</label>
+                    <p>Remove video thumbnails at the end</p>
+                </div>
+                <label class="switch" aria-label="Toggle Hide End Cards">
+                    <input type="checkbox" id="hideEndCards">
+                    <span class="slider" aria-hidden="true"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div class="setting-info">
+                    <label for="hideAutoplay">Hide Autoplay</label>
+                    <p>Disable the autoplay next button</p>
+                </div>
+                <label class="switch" aria-label="Toggle Hide Autoplay">
+                    <input type="checkbox" id="hideAutoplay">
+                    <span class="slider" aria-hidden="true"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div class="setting-info">
+                    <label for="hideComments">Hide Comments</label>
+                    <p>Hide the entire comments section</p>
+                </div>
+                <label class="switch" aria-label="Toggle Hide Comments">
+                    <input type="checkbox" id="hideComments">
+                    <span class="slider" aria-hidden="true"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div class="setting-info">
+                    <label for="hideTrending">Hide Trending</label>
+                    <p>Remove the sidebar trending tab</p>
+                </div>
+                <label class="switch" aria-label="Toggle Hide Trending">
+                    <input type="checkbox" id="hideTrending">
+                    <span class="slider" aria-hidden="true"></span>
+                </label>
+            </div>
+        </main>
+
+        <footer>
+            <!-- Version injected safely via popup.js — no inline script -->
+            <p id="footer-text">Settings are saved automatically &nbsp;·&nbsp; <span id="version"></span></p>
+            <p><a id="privacy-link" href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <!-- External script only — no inline scripts allowed by CSP -->
+    <script src="popup.js"></script>
+</body>
+</html>
