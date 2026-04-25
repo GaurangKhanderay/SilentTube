@@ -62,30 +62,6 @@ SilentTube/
 
 ---
 
-## 🌐 How to Publish to Chrome Web Store
-
-1. **Prepare your extension:**
-   - Ensure all files are finalized and the extension works correctly.
-   - Create high-quality icons (16, 48, 128px).
-   - Write a compelling description.
-   - Take screenshots of the popup and YouTube with the extension active.
-
-2. **Create a ZIP file:**
-   - Compress all files in the `SilentTube/` folder into a `.zip` archive (not the folder itself, the contents).
-
-3. **Register as a Chrome developer:**
-   - Go to the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/).
-   - Pay the one-time $5 developer registration fee.
-
-4. **Submit your extension:**
-   - Click **"New Item"** and upload your `.zip` file.
-   - Fill in the store listing: name, description, screenshots, category.
-   - Submit for review. Google typically reviews within 1–3 business days.
-
-5. **After approval**, your extension will be publicly listed on the Chrome Web Store.
-
----
-
 ## ⚙️ How It Works (Technical)
 
 - **`manifest.json`** — Manifest V3 config. Declares permissions (`storage`, `activeTab`) and injects `content.js` into all `youtube.com` pages.
