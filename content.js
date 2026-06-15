@@ -233,7 +233,10 @@
 
         // 4. Listen for explicit re-apply messages from the popup.
         //    Validates message type — never processes unknown message shapes.
-        chrome.runtime.onMessage.addListener((msg, _sender, _sendResponse) => {
+        chrome.runtime.onMessage.addListener((msg, sender, _sendResponse) => {
+            // Defense-in-depth: only accept messages from our own extension
+            if (sender.id !== chrome.runtime.id) return;
+
             if (!isExtensionAlive()) {
                 teardown();
                 return;
