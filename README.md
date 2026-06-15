@@ -88,7 +88,7 @@ SilentTube/
 
 ## ⚙️ How It Works (Technical)
 
-- **`manifest.json`** — Manifest V3 config. Declares permissions (`storage`, `activeTab`) and injects `content.js` into all `youtube.com` pages.
+- **`manifest.json`** — Manifest V3 config. Declares permissions (`storage`) and injects `content.js` into all `youtube.com` pages.
 - **`content.js`** — Runs on every YouTube page. Reads settings from `chrome.storage.sync` and injects a `<style>` tag into the page with CSS `display: none` rules. Uses a `MutationObserver` to handle YouTube's SPA navigation (URL changes without full page reload). Listens to `chrome.storage.onChanged` for real-time updates.
 - **`popup.html/css/js`** — The settings panel. Reads and writes to `chrome.storage.sync`. When a toggle changes, it sends a message to the active tab's content script to update immediately.
 
