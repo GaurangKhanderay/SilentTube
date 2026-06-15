@@ -229,9 +229,9 @@
             }
         });
 
-        observer.observe(document.documentElement, {
+        observer.observe(document.head || document.documentElement, {
             childList: true,
-            subtree: true,
+            subtree: false, // Much faster: only watch direct children of <head>
         });
 
         // 4. Listen for explicit re-apply messages from the popup.
