@@ -14,6 +14,9 @@
 (function () {
     'use strict';
 
+    const DEBUG = false;
+    function warn(...args) { if (DEBUG) console.warn(...args); }
+
     // ─── CONSTANTS ────────────────────────────────────────────────────────────
 
     /**
@@ -58,7 +61,7 @@
         try {
             chrome.storage.sync.get(VALID_KEYS, (raw) => {
                 if (chrome.runtime.lastError) {
-                    console.warn('SilentTube: load error —', chrome.runtime.lastError.message);
+                    warn('SilentTube: load error —', chrome.runtime.lastError.message);
                     return;
                 }
                 const settings = sanitizeSettings(raw || {});
@@ -70,7 +73,7 @@
                 }
             });
         } catch (e) {
-            console.warn('SilentTube: storage unavailable —', e.message);
+            warn('SilentTube: storage unavailable —', e.message);
         }
     }
 
@@ -87,13 +90,13 @@
             // Explicit boolean cast — cannot store non-boolean types
             chrome.storage.sync.set({ [key]: Boolean(value) }, () => {
                 if (chrome.runtime.lastError) {
-                    console.warn('SilentTube: save error —', chrome.runtime.lastError.message);
+                    warn('SilentTube: save error —', chrome.runtime.lastError.message);
                     return;
                 }
                 notifyYouTubeTab();
             });
         } catch (e) {
-            console.warn('SilentTube: storage unavailable —', e.message);
+            warn('SilentTube: storage unavailable —', e.message);
         }
     }
 
@@ -124,7 +127,7 @@
             });
         } catch (e) {
             // Extension context may be unavailable in edge cases
-            console.warn('SilentTube: messaging unavailable —', e.message);
+            warn('SilentTube: messaging unavailable —', e.message);
         }
     }
 
@@ -171,7 +174,7 @@
             registerToggleListeners();
         });
     } catch (e) {
-        console.warn('SilentTube popup: initialization error —', e.message);
+        warn('SilentTube popup: initialization error —', e.message);
     }
 
 })(); // End IIFE — no globals leak

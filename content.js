@@ -14,6 +14,9 @@
 (function () {
     'use strict';
 
+    const DEBUG = false;
+    function warn(...args) { if (DEBUG) console.warn(...args); }
+
     // ─── STATIC CONSTANTS ─────────────────────────────────────────────────────
 
     /**
@@ -154,14 +157,14 @@
             chrome.storage.sync.get(VALID_KEYS, (raw) => {
                 // chrome.runtime.lastError must be checked inside callbacks
                 if (chrome.runtime.lastError) {
-                    console.warn('SilentTube: storage read error —', chrome.runtime.lastError.message);
+                    warn('SilentTube: storage read error —', chrome.runtime.lastError.message);
                     return;
                 }
                 const settings = sanitizeSettings(raw || {});
                 applyStyles(settings);
             });
         } catch (e) {
-            console.warn('SilentTube: storage unavailable —', e.message);
+            warn('SilentTube: storage unavailable —', e.message);
         }
     }
 
@@ -259,7 +262,7 @@
 
     } catch (e) {
         // Top-level error boundary — silently fail, never crash the user's page
-        console.warn('SilentTube: initialization error —', e.message);
+        warn('SilentTube: initialization error —', e.message);
     }
 
 })(); // End IIFE — no variables leak to the global scope
