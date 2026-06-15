@@ -20,3 +20,8 @@ npm-debug.log*
 # Scratch / temp files
 *.tmp
 *.bak
+
+# Environment and Source Maps
+.env
+.env.*
+*.map
