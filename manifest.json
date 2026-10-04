@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "SilentTube",
-  "version": "1.0.0",
-  "description": "YouTube Focus Mode - Remove distracting elements from YouTube. Zero data collection.",
+  "version": "1.0.1",
+  "description": "Hide Shorts, recommendations, comments and other distractions on YouTube. No data collected.",
 
   "permissions": ["storage"],
   "host_permissions": ["*://*.youtube.com/*"],
